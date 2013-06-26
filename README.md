@@ -18,6 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
+    require 'isbn_tool'
+    validator = ISBN13Validator.new("9783639514971") 
+    validator.valid? => true
+    validator.hyphenate? => "978-3-639-51497-1"
+    
 
 ## Contributing
 
