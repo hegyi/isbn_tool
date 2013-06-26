@@ -11,6 +11,9 @@ class ISBN13Validator
 
     return false unless isbn.match(/^\d+$/)
 
+    checksum_validator = ChecksumValidator.new(isbn)
+    return valid = false unless checksum_validator.valid?
+
     prefix_validator = PrefixValidator.new(isbn, range_metadata)
     return valid = false unless prefix_validator.valid?
     splits << prefix_validator.get_chunk
@@ -23,8 +26,6 @@ class ISBN13Validator
     return valid = false unless range_table_validator.valid?
 
     splits << range_table_validator.get_chunk
-    checksum_validator = ChecksumValidator.new(isbn)
-    return valid = false unless checksum_validator.valid?
 
     splits << isbn[splitted_digits_length...-1]
     splits << isbn[-1]
