@@ -10,11 +10,7 @@ class ChecksumCalculator
       sum += digit * cycle.next
     end
     remainder = sum % 10
-    if remainder == 0
-      checksum = 0
-    else
-      checksum = 10 - remainder
-    end
+    remainder == 0 ? 0 : 10 - remainder
   end
 
   private

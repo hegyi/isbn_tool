@@ -7,10 +7,10 @@ class PrefixValidator
   end
 
   def valid?
-    return @valid unless @valid.nil?
+    return valid unless valid.nil?
 
     @groups ||= range_metadata.groups_for_prefix(prefix)
-    @valid = @groups.any?
+    valid = @groups.any?
   end
 
   def get_chunk
@@ -23,4 +23,5 @@ class PrefixValidator
 
   private
   attr_reader :prefix, :range_metadata
+  attr_accessor :valid
 end

@@ -6,15 +6,15 @@ class RangeTableValidator
   end
 
   def valid?
-    return @valid unless @valid.nil?
+    return valid unless valid.nil?
 
     ranges = build_ranges
     range = ranges.find { |range| range.in_range? remaining }
     if range
       @number_in_range = remaining[0...range.length]
-      @valid = true
+      valid = true
     else
-      @valid = false
+      valid = false
     end
   end
 
@@ -23,7 +23,7 @@ class RangeTableValidator
   end
 
   private
-  attr_accessor :group, :number_in_range
+  attr_accessor :group, :number_in_range, :valid
   attr_reader :remaining
 
   def build_ranges
