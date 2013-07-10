@@ -1,4 +1,5 @@
 class ISBNRange
+  attr_reader :min, :max
   attr_reader :length
 
   def initialize(range, length)
@@ -12,7 +13,6 @@ class ISBNRange
   end
 
   private
-  attr_reader :min, :max
   
   def extract_range(range, length)
     length = length.to_i

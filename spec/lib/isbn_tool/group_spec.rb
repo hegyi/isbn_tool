@@ -22,6 +22,15 @@ module IsbnTool
       expect(group.rules).to eql( [rule, another_rule] )
     end
 
+    it "more rules can be added" do
+      rule = double(:rule)
+      another_rule = double(:another_rule)
+
+      group.add_rules([rule, another_rule])
+
+      expect(group.rules).to eql( [rule, another_rule] )
+    end
+
 
   end
 
