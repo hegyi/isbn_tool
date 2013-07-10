@@ -1,7 +1,8 @@
 require "isbn_tool/version"
 
 module IsbnTool
-  require "isbn_tool/range_metadata_builder"
+  require "isbn_tool/isbn_metadata_builder"
+  require "isbn_tool/isbn_metadata_collection"
   require "isbn_tool/groups"
   require "isbn_tool/isbn"
   require "isbn_tool/group"
