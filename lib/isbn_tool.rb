@@ -1,6 +1,8 @@
 require "isbn_tool/version"
 
 module IsbnTool
+  require "isbn_tool/isbn"
+  require "isbn_tool/group"
   require "isbn_tool/checksum_calculator"
   require "isbn_tool/isbn_range"
   require "isbn_tool/range_metadata"
