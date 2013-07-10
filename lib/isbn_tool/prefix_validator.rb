@@ -9,7 +9,7 @@ class PrefixValidator
   def valid?
     return valid unless valid.nil?
 
-    @groups ||= range_metadata.groups_for_prefix(prefix)
+    @groups ||= IsbnTool::IsbnMetadataCollection.instance.groups.select { |g| g.prefix == @prefix }
     valid = @groups.any?
   end
 

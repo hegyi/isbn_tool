@@ -14,7 +14,7 @@ class ISBN13Validator
     checksum_validator = ChecksumValidator.new(isbn)
     return valid = false unless checksum_validator.valid?
 
-    prefix_validator = PrefixValidator.new(isbn, range_metadata)
+    prefix_validator = PrefixValidator.new(isbn, IsbnTool::IsbnMetadataCollection.instance)
     return valid = false unless prefix_validator.valid?
     splits << prefix_validator.get_chunk
 

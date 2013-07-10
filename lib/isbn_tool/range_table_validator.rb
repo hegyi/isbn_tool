@@ -27,9 +27,7 @@ class RangeTableValidator
   attr_reader :remaining
 
   def build_ranges
-    group.xpath("Rules/Rule").map do |rule|
-      ISBNRange.new(rule.xpath("Range").text, rule.xpath("Length").text)
-    end
+    group.rules
   end
 
 end

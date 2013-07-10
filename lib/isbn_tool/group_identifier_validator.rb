@@ -21,11 +21,11 @@ class GroupIdentifierValidator
   end
 
   def found_prefix
-    group.xpath("Prefix").text
+    group.prefix
   end
 
   def get_chunk
-    found_prefix.split("-").last
+    group.group_id
   end
 
   private
@@ -33,12 +33,12 @@ class GroupIdentifierValidator
   attr_writer :group
 
   def mathcing_groups(text)
-    groups = @groups.select { |g| text.start_with? g.xpath("Prefix").text }
-    groups.sort_by { |g| g.xpath("Prefix").text.size }
+    groups = @groups.select { |g| text.start_with? "#{g.prefix}-#{g.group_id}" }
+    groups.sort_by { |g| g.prefix.length}
   end
 
   def extract_prefix
-    @groups.xpath("//Prefix").first.text[/^(\d+)/, 1]
+    @groups.first.prefix
   end
 
 end
