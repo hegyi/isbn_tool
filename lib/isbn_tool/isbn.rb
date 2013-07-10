@@ -1,9 +1,11 @@
 module IsbnTool
   class Isbn
+    VALID_LENGTH = 13
     attr_accessor :prefix_element, :registration_group_element, :registrant_element, :publication_element, :check_digit, :group
     attr_accessor :raw_isbn
 
     def initialize(isbn, validator = IsbnValidator)
+
       @validator = validator.new(self)
 
       @raw_isbn = isbn
