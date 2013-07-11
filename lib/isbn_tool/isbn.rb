@@ -7,10 +7,9 @@ module IsbnTool
     attr_accessor :raw_isbn
 
     def initialize(isbn, validator = IsbnValidator, hyphenatizor = IsbnHyphenatizor)
-      @validator = validator.new(self)
-      @hyphenatizor = hyphenatizor.new(self)
-
       @raw_isbn = isbn
+      @validator = validator.new(self.dup)
+      @hyphenatizor = hyphenatizor.new(self.dup)
 
       @prefix_element = nil
       @registration_group_element = nil
@@ -51,5 +50,6 @@ module IsbnTool
         @check_digit
       ].compact
     end
+
   end
 end
