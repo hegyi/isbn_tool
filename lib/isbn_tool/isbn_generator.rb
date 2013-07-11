@@ -8,9 +8,10 @@ module IsbnTool
     end
 
     def generate(count)
-      raise 'This is a complete isbn!' if not_complete_isbn.raw_isbn.size >= 13
+      isbn_size = not_complete_isbn.raw_isbn.size
+      raise 'Too long isbn (>= 13)' if  isbn_size >= 13
 
-      current_length = not_complete_isbn.raw_isbn.size
+      current_length = isbn_size
       random_number_length = (Isbn::VALID_LENGTH - current_length - Isbn::CHECKSUM_LENGTH).to_i
 
       random_numbers = random_numbers_with_fixed_length(random_number_length, count)
