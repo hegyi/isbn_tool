@@ -109,6 +109,68 @@
       </Rules>
     </Group>
     <Group>
+      <Prefix>978-3</Prefix>
+      <Agency>German language</Agency>
+      <Rules>
+        <Rule>
+          <Range>0000000-0299999</Range>
+          <Length>2</Length>
+        </Rule>
+        <Rule>
+          <Range>0300000-0339999</Range>
+          <Length>3</Length>
+        </Rule>
+        <Rule>
+          <Range>0340000-0369999</Range>
+          <Length>4</Length>
+        </Rule>
+        <Rule>
+          <Range>0370000-0399999</Range>
+          <Length>5</Length>
+        </Rule>
+        <Rule>
+          <Range>0400000-1999999</Range>
+          <Length>2</Length>
+        </Rule>
+        <Rule>
+          <Range>2000000-6999999</Range>
+          <Length>3</Length>
+        </Rule>
+        <Rule>
+          <Range>7000000-8499999</Range>
+          <Length>4</Length>
+        </Rule>
+        <Rule>
+          <Range>8500000-8999999</Range>
+          <Length>5</Length>
+        </Rule>
+        <Rule>
+          <Range>9000000-9499999</Range>
+          <Length>6</Length>
+        </Rule>
+        <Rule>
+          <Range>9500000-9539999</Range>
+          <Length>7</Length>
+        </Rule>
+        <Rule>
+          <Range>9540000-9699999</Range>
+          <Length>5</Length>
+        </Rule>
+        <Rule>
+          <Range>9700000-9899999</Range>
+          <Length>7</Length>
+        </Rule>
+        <Rule>
+          <Range>9900000-9949999</Range>
+          <Length>5</Length>
+        </Rule>
+        <Rule>
+          <Range>9950000-9999999</Range>
+          <Length>5</Length>
+        </Rule>
+      </Rules>
+    </Group>
+    <Group>
       <Prefix>978-601</Prefix>
       <Agency>Kazakhstan</Agency>
       <Rules>
