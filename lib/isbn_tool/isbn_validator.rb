@@ -1,5 +1,8 @@
 module IsbnTool
   class IsbnValidator
+    
+    attr_accessor :isbn, :metadata_collection
+
     VALIDATOR_CHAIN = [
       ChecksumParser,
       PrefixElementParser,
@@ -15,8 +18,8 @@ module IsbnTool
 
     def valid?
       VALIDATOR_CHAIN.each do |validator_class|
-        validator = validator_class.new(@isbn, @metadata_collection)
-        @isbn = validator.parse
+        validator = validator_class.new(isbn, metadata_collection)
+        isbn = validator.parse
         return false unless validator.valid?
       end
       true

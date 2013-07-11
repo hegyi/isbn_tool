@@ -1,5 +1,7 @@
 module IsbnTool
   class IsbnHyphenatizor
+    attr_accessor :isbn, :metadata_collection
+
     PARSER_CHAIN = [
       PrefixElementParser,
       RegistrationGroupElementParser,
@@ -7,6 +9,7 @@ module IsbnTool
       PublicationElementParser,
       ChecksumParser
     ]
+
     def initialize(isbn, metadata_collection = IsbnMetadataCollection.instance)
       @isbn = isbn
       @metadata_collection = metadata_collection
@@ -14,10 +17,10 @@ module IsbnTool
 
     def hyphenate
       PARSER_CHAIN.each do |parser_class|
-        parser = parser_class.new(@isbn, @metadata_collection)
-        @isbn = parser.parse
+        parser = parser_class.new(isbn, metadata_collection)
+        isbn = parser.parse
       end
-      @isbn.parsed_blocks.join("-")
+      isbn.parsed_blocks.join("-")
     end
   end
 end

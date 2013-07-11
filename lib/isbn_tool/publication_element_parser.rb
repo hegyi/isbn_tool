@@ -2,8 +2,8 @@ module IsbnTool
   class PublicationElementParser < IsbnParser
     def parse
       raise IsbnParserException.new("Invalid publication element!") unless valid?
-      @isbn.publication_element = numbers_before_checksum
-      @isbn
+      isbn.publication_element = numbers_before_checksum
+      isbn
     end
 
     def valid?
