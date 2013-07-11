@@ -17,8 +17,13 @@ module IsbnTool
       expect(generator.generate(5).size).to eq(5)
     end
 
+    it "can generate only 9 isbns" do
+      generator = IsbnGenerator.new("97865933331")
+      expect(generator.generate(100).size).to eq(9)
+    end
+
     it "generates valid isbns" do
-      generator = IsbnGenerator.new("97838473333")
+      generator = IsbnGenerator.new("978384733")
       generator.generate(5).each do |raw_isbn|
         isbn = Isbn.new(raw_isbn)
         expect(isbn).to be_valid

@@ -1,6 +1,8 @@
 module IsbnTool
   class Isbn
     VALID_LENGTH = 13
+    CHECKSUM_LENGTH = 1
+
     attr_accessor :prefix_element, :registration_group_element, :registrant_element, :publication_element, :check_digit, :group
     attr_accessor :raw_isbn
 
