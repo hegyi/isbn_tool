@@ -7,7 +7,7 @@ module IsbnTool
     end
 
     def valid?
-      @isbn.last_digit == ChecksumCalculator.new(@isbn.without_checksum).calculate
+      @isbn.last_digit.to_i == ChecksumCalculator.new(@isbn.without_checksum).calculate
     end
   end
 

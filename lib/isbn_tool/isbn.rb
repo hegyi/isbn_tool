@@ -4,9 +4,9 @@ module IsbnTool
     attr_accessor :prefix_element, :registration_group_element, :registrant_element, :publication_element, :check_digit, :group
     attr_accessor :raw_isbn
 
-    def initialize(isbn, validator = IsbnValidator)
-
+    def initialize(isbn, validator = IsbnValidator, hyphenatizor = IsbnHyphenatizor)
       @validator = validator.new(self)
+      @hyphenatizor = hyphenatizor.new(self)
 
       @raw_isbn = isbn
 
@@ -18,21 +18,22 @@ module IsbnTool
       @group = nil
     end
 
-    def not_extracted_numbers
-      length = parsed_blocks.join.size
-      @raw_isbn[length..-1]
-    end
-
     def valid?
       @validator.valid?
     end
 
     def hyphenate
-      IsbnHyphenatizor.new(self).hyphenate
+      @hyphenatizor.hyphenate
     end
 
+    def not_extracted_numbers
+      length = parsed_blocks.join.size
+      @raw_isbn[length..-1]
+    end
+
+
     def last_digit
-      @raw_isbn[-1].to_i
+      @raw_isbn[-1]
     end
 
     def without_checksum

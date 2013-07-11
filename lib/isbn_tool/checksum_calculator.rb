@@ -5,10 +5,9 @@ module IsbnTool
     end
 
     def calculate
-      sum = 0
       cycle = [1,3].cycle
-      input_as_digit_array.each do |digit|
-        sum += digit * cycle.next
+      sum = input_as_digit_array.inject(0) do |_sum, digit|
+        _sum += digit * cycle.next
       end
       remainder = sum % 10
       remainder == 0 ? 0 : 10 - remainder
